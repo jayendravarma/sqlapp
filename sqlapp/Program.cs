@@ -2,6 +2,12 @@ using sqlapp.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "Endpoint=https://jainconfig.azconfig.io;Id=6aIi-l0-s0:diJLxo9MXkjy1aV+bsLw;Secret=CzHwLV6MwkW+dPPL2dNUi98uutIPvxHWBzAo+gTfKbY=";
+
+builder.Host.ConfigureAppConfiguration(builder =>
+{
+    builder.AddAzureAppConfiguration(connectionString);
+})
 
 builder.Services.AddTransient<IProductService, ProductService>();
 // Add services to the container.
